@@ -1,7 +1,16 @@
 const express = require('express');
+
+//service
+const my_business_logic = require('./service/my_business_logic');
+
 const app = express();
 const port = 3000;
-app.get('/', (req, res) => {
+app.use(express.json());
+
+
+//get
+//greetings
+app.get('/', (request, response) => {
 res.send('Daisy!');
 });
 
@@ -19,6 +28,30 @@ app.get(`/list_of_friends_by_id/:`,(request,response)=>{
     return request.send("sending nothing back")
 });
 
+app.get('/list_of_students', (response) => {
+    console.log("i got here to");
+    return response.send(my_business_logic.get_list_of_students());
+});
+
+app.get('/list_of_student_by_id/:student_id', (request, response) => {
+    return response.send(friends);
+});
+
+app.get('./list_of_students_by_id/:students_id',(request,response)  =>{
+
+    // console.log("logging request params", request, response)
+
+    //console.log("use value from front end", request, response)
+    return response.status(200).send(my_business_logic.getstudentsbyid(request));
+});
+
+
+//post
+
+app.post('/sign_up', (request, response) => {
+    console.log("logging request params", request, response.body)
+    return response.send(students);
+});
 app.listen(port, () => {
 console.log(`Example app listening at http://localhost:${port}`);
 });
@@ -26,4 +59,3 @@ console.log(`Example app listening at http://localhost:${port}`);
  const bodyParser = require('body-parser');
  app.use(bodyParser.json());
 
- 

@@ -1,7 +1,8 @@
 const my_bibi = request('../models/my_bibi');
 
-//function getting alll students 
+//function getting all students 
 const get_students =() =>{
+    console.log("getting here:",my_bibi);
     return my_bibi.students;
 }
 
