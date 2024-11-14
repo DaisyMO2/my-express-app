@@ -52,6 +52,27 @@ app.post('/sign_up', (request, response) => {
     console.log("logging request params", request, response.body)
     return response.send(students);
 });
+
+//delete
+
+app.delete('/sign_up', (request, response) => {
+    console.log("logging request params", request, response.body)
+    return response.send(students);
+});
+
+//patch
+
+app.patch('/sign_up', (request, response) => {
+    console.log("logging request params", request, response.body)
+    return response.send(students);
+});
+
+//put
+
+app.put('/sign_up', (request, response) => {
+    console.log("logging request params", request, response.body)
+    return response.send(students);
+});
 app.listen(port, () => {
 console.log(`Example app listening at http://localhost:${port}`);
 });
